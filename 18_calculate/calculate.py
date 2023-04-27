@@ -24,5 +24,21 @@ def calculate(operation, a, b, make_int=False, message='The result is'):
     If a valid operation isn't provided, return None.
 
         >>> calculate('foo', 2, 3)
-        
+
     """
+    operators = ['add', 'subtract', 'multiply', 'divide']
+
+    if operation not in operators:
+        return None
+
+    if operation == 'add':
+        result = a + b
+    elif operation == 'subtract':
+        result = a - b
+    elif operation == 'multiply':
+        result = a * b
+    elif operation == 'divide':
+        result = a / b
+
+    result = int(result) if make_int else result
+    return f"{message} {result}"

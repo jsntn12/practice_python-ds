@@ -11,3 +11,12 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+
+    most_common = {"val": 0, "count": 0}
+
+    for num in nums:
+        if nums.count(num) > most_common["count"]:
+            most_common["val"] = num
+            most_common["count"] = nums.count(num)
+
+    return most_common["val"]

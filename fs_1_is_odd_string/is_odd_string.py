@@ -1,3 +1,6 @@
+import string
+
+
 def is_odd_string(word):
     """Is the sum of the character-positions odd?
 
@@ -7,7 +10,7 @@ def is_odd_string(word):
     Return True/False, depending on whether sum of those numbers is odd.
 
     For example, these sum to 1, which is odd:
-    
+
         >>> is_odd_string('a')
         True
 
@@ -15,7 +18,7 @@ def is_odd_string(word):
         True
 
     These sum to 4, which is not odd:
-    
+
         >>> is_odd_string('aaaa')
         False
 
@@ -23,9 +26,21 @@ def is_odd_string(word):
         False
 
     Longer example:
-    
+
         >>> is_odd_string('amazing')
         True
     """
 
     # Hint: you may find the ord() function useful here
+    alphabet_index = {}
+    position = 0
+
+    for char in list(string.ascii_lowercase):
+        position += 1
+        alphabet_index[char] = position
+
+    total = 0
+    for char in word.lower():
+        total += alphabet_index[char]
+    print(total)
+    return True if total % 2 == 1 else False
